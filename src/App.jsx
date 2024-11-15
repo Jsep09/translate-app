@@ -8,13 +8,16 @@ function App() {
   const [translation, setTranslation] = useState("");
   const [lang1Select, setlang1Select] = useState("en");
   const [lang2Select, setlang2Select] = useState("th");
+  const [loading, setLoading] = useState(false);
 
   const handelsendDataToApi = async () => {
     if (text) {
+      setLoading(true);
       const response = await Api(text, lang1Select, lang2Select);
       let translationResult = response.data.responseData.translatedText;
 
       setTranslation(translationResult);
+      setLoading(false);
     }
   };
   // switch ภาษา
@@ -68,7 +71,7 @@ function App() {
               <textarea
                 className="box-border w-full h-full resize-none focus:outline-none bg-inherit"
                 type="text"
-                value={translation}
+                value={loading ? "Translating..." : translation}
                 placeholder="Translation"
                 readOnly
                 disabled
