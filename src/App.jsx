@@ -50,7 +50,7 @@ function App() {
       {/* contianer */}
       <div className="container sm:mx-auto md:mx-auto flex justify-center items-center h-screen">
         {/* main box */}
-        <div className="box-border justify-center items-center w-4/5 sm:w-3/4 md:w-3/4 lg:w-3/4 xl:w-1/2 2xl:w-1/2 h-1/2 md:h-2/4 2xl:h-3/4 p-6 bg-white rounded-md">
+        <div className="box-border justify-center items-center w-4/5 sm:w-3/4 md:w-3/4 lg:w-3/4 xl:w-3/4 2xl:w-3/4 h-1/2 md:h-2/4 2xl:h-2/4 p-6 bg-white rounded-md">
           {/* text area box */}
           <div className="flex flex-row flex-wrap w-full sm:w-full h-3/4 border border-slate-300 rounded-t-lg">
             <div className="w-full sm:w-full md:w-1/2 border-b sm:border-b md:border-b-0 md:border-r border-slate-300 pl-4 pt-2 ">
@@ -77,11 +77,11 @@ function App() {
           </div>
           {/* button & option group box */}
           <div className="w-full h-10 border border-t-0 border-slate-300 rounded-b-lg flex flex-row justify-between items-center">
-            <div className="button-group1 flex flex-row  justify-center gap-4 pl-4 pr-6 border-r-2  border-slate-300">
-              <div className="volume-1 flex items-center ">
-                <button>
+            <div className="button-group1 flex flex-row justify-between items-center gap-4 pl-0 pr-0 sm:pl-4 sm:pr-4 md:pl-4 md:pr-6 xl:pl-4 xl:pr-6  2xl:pl-4 2xl:pr-6 border-r-2  border-slate-300">
+              <div className="volume-1  hidden sm:block ">
+                <button className="transform active:scale-90 transition duration-100">
                   <svg
-                    class="h-6 w-6 text-gray-500"
+                    className="mt-1 h-6 w-6 text-gray-500"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -95,10 +95,13 @@ function App() {
                   </svg>
                 </button>
               </div>
-              <div className="copy-1 flex items-center">
-                <button onClick={() => handelCopyToClipboard(text)}>
+              <div className="copy-1 hidden sm:block">
+                <button
+                  onClick={() => handelCopyToClipboard(text)}
+                  className="transform active:scale-90 transition duration-150"
+                >
                   <svg
-                    class="h-6 w-6 text-gray-500"
+                    className="mt-2 h-6 w-6 text-gray-500"
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
@@ -118,7 +121,7 @@ function App() {
             </div>
             <div className="lang-1">
               <select
-                className="focus:outline-none w-32"
+                className="focus:outline-none  w-20 sm:w-20 md:w-34 lg:w-36 xl:w-40 2xl:w-44"
                 name="lang1"
                 id=""
                 value={lang1Select}
@@ -133,7 +136,10 @@ function App() {
             </div>
 
             <div className="switch flex items-center ">
-              <button onClick={handelSwitchBut}>
+              <button
+                onClick={handelSwitchBut}
+                classname="transform active:scale-90 duration-100"
+              >
                 <svg
                   class="h-5 w-5 text-gray-500"
                   fill="none"
@@ -151,7 +157,7 @@ function App() {
             </div>
             <div className="lang-2">
               <select
-                className="focus:outline-none w-32"
+                className="focus:outline-none  w-20 sm:w-20 md:w-34 lg:w-36 xl:w-40 2xl:w-44"
                 name="lang1"
                 id=""
                 // มันรู้ได้ไงว่าต้องเป็นตัวไหนใน Array object มันเลือก select option ให้เลยจากการ map value={lang.code} ก็จะดูให้ว่า default คือตัวไหน
@@ -165,11 +171,14 @@ function App() {
                 })}
               </select>
             </div>
-            <div className="button-group2 flex flex-row justify-center gap-4 pr-4 pl-6 border-l-2  border-slate-300 ">
-              <div className="copy-2 flex items-center">
-                <button onClick={() => handelCopyToClipboard(translation)}>
+            <div className="button-group2 flex flex-row justify-center gap-4 pl-0 pr-0 sm:pl-4 sm:pr-4 md:pl-6 md:pr-4 xl:pl-6 xl:pr-4  2xl:pl-4 2xl:pr-6  border-l-2 border-slate-300 ">
+              <div className="copy-2 hidden sm:block">
+                <button
+                  onClick={() => handelCopyToClipboard(translation)}
+                  className="tranform active:scale-90 duration-100"
+                >
                   <svg
-                    class="h-6 w-6 text-gray-500"
+                    class="mt-1 h-6 w-6 text-gray-500"
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
@@ -186,10 +195,10 @@ function App() {
                   </svg>
                 </button>
               </div>
-              <div className="volume-2 flex items-center">
-                <button>
+              <div className="volume-2 hidden sm:block">
+                <button className="tranform active:scale-90 duration-100">
                   <svg
-                    class="h-6 w-6 text-gray-500"
+                    class="mt-1 h-6 w-6 text-gray-500"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -208,7 +217,7 @@ function App() {
 
           <button
             onClick={handelsendDataToApi}
-            className="border-solid bg-blue-600 text-white rounded-md mt-3 w-full py-2"
+            className="border-solid bg-blue-600 text-white rounded-md mt-3  w-full py-2 before:scale-75 after:scale-105"
           >
             Translate text
           </button>
