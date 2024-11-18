@@ -48,6 +48,12 @@ function App() {
         console.log("err", err);
       });
   };
+
+  const handelClickToSpeech = (text, lang) => {
+    const value = new SpeechSynthesisUtterance(text);
+    value.lang = lang;
+    window.speechSynthesis.speak(value);
+  };
   return (
     <div className=" bg-slate-600">
       {/* contianer */}
@@ -82,7 +88,12 @@ function App() {
           <div className="w-full h-10 border border-t-0 border-slate-300 rounded-b-lg flex flex-row justify-between items-center">
             <div className="button-group1 flex flex-row justify-between items-center gap-4 pl-0 pr-0 sm:pl-4 sm:pr-4 md:pl-4 md:pr-6 xl:pl-4 xl:pr-6  2xl:pl-4 2xl:pr-6 border-r-2  border-slate-300">
               <div className="volume-1  hidden sm:block ">
-                <button className="transform active:scale-90 transition duration-100">
+                <button
+                  className="transform active:scale-90 transition duration-100"
+                  onClick={() => {
+                    handelClickToSpeech(text, lang1Select);
+                  }}
+                >
                   <svg
                     className="mt-1 h-6 w-6 text-gray-500"
                     fill="none"
@@ -199,7 +210,12 @@ function App() {
                 </button>
               </div>
               <div className="volume-2 hidden sm:block">
-                <button className="tranform active:scale-90 duration-100">
+                <button
+                  className="tranform active:scale-90 duration-100"
+                  onClick={() => {
+                    handelClickToSpeech(translation, lang2Select);
+                  }}
+                >
                   <svg
                     class="mt-1 h-6 w-6 text-gray-500"
                     fill="none"
